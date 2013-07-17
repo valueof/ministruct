@@ -1,0 +1,27 @@
+{
+  "name": "ministruct",
+  "version": "0.0.1",
+  "description": "Small library to define strictly typed objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodeunit test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/antonkovalyov/ministruct.git"
+  },
+  "devDependencies": {
+    "nodeunit": "~0.8.1"
+  },
+  "keywords": [
+    "struct",
+    "types"
+  ],
+  "author": "Anton Kovalyov <anton@kovalyov.net>",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "bead6c5d4cf3d7f33a0526b631aa7347f726996c",
+  "bugs": {
+    "url": "https://github.com/antonkovalyov/ministruct/issues"
+  }
+}
