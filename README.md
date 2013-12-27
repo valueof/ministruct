@@ -14,7 +14,7 @@ var person = struct({
   nicks: type.array
 });
 
-var bob = make(sample);
+var bob = make(person);
 bob.name = "Bob";
 bob.age = 26;
 bob.nicks = [ "bob1986", "sexybob" ];
