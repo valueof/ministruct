@@ -1,6 +1,6 @@
 {
   "name": "ministruct",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Small library to define strictly typed objects",
   "main": "index.js",
   "scripts": {

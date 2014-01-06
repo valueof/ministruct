@@ -10,7 +10,8 @@ var demo   = struct({
   num: type.number,
   str: type.string | type.nil,
   fun: type.func,
-  reg: type.regexp
+  reg: type.regexp,
+  bol: type.bool
 });
 
 exports.test = function (test) {
@@ -23,6 +24,7 @@ exports.test = function (test) {
   inst.str = "Hi.";
   inst.fun = function () { return "Hi." };
   inst.reg = /fun/g;
+  inst.bol = true;
 
   test.ok(inst.nil === null);
   test.ok(inst.arr.length == 3 && inst.arr[2] == 3);
@@ -31,16 +33,20 @@ exports.test = function (test) {
   test.ok(inst.str == "Hi.");
   test.ok(inst.fun() == "Hi.");
   test.ok(inst.reg.test("fun") === true);
+  test.ok(inst.bol === true);
 
   test.throws(function () { inst.nil = 1 }, TypeError);
   test.throws(function () { inst.arr = null }, TypeError);
   test.throws(function () { inst.obj = "" }, TypeError);
   test.throws(function () { inst.num = {} }, TypeError);
   test.throws(function () { inst.reg = 101 }, TypeError);
+  test.throws(function () { inst.bol = 1 }, TypeError);
+
+  test.doesNotThrow(function () { inst.bol = false });
   test.doesNotThrow(function () { inst.str = null });
 
   test.equal(JSON.stringify(inst),
-    '{"nil":null,"arr":[1,2,3],"obj":{"name":"ministruct"},"num":101,"str":null,"reg":{}}')
+    '{"nil":null,"arr":[1,2,3],"obj":{"name":"ministruct"},"num":101,"str":null,"reg":{},"bol":false}')
 
   test.done();
 };

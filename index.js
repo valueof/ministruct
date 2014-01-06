@@ -5,7 +5,8 @@ var type = {
   number: 8,
   string: 16,
   func:   32,
-  regexp: 64
+  regexp: 64,
+  bool:   128
 };
 
 function error(key, t) {
@@ -36,6 +37,9 @@ function check(val, t) {
     return true;
 
   if ((t && type.regexp) && is(val, "RegExp"))
+    return true;
+
+  if ((t && type.bool) && (val === true || val === false))
     return true;
   
   return false;
